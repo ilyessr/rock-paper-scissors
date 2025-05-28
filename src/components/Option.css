@@ -1,0 +1,9 @@
+.option-button {
+  transition: 0.3s;
+  padding: 0px;
+  border-radius: 4px;
+}
+
+.option-button:hover {
+  transform: scale(1.05);
+}
