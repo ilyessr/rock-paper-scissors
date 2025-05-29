@@ -10,8 +10,7 @@ interface ScoreBoardProps {
 
 function ScoreBoard({ userScore = 0, computerScore = 0, handleReset }: ScoreBoardProps) {
     return (
-        <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" sx={{ p: 3, backgroundColor: 'rgba(128, 128, 128, 0.1)', borderRadius: '10px' }}>
-
+        <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" sx={{ p: 2, backgroundColor: "var(--color-background-div)", borderRadius: '10px', mb: 3 }}>
             <Stack direction="row" alignContent="center" alignItems="center">
                 <Stack alignItems="center">
                     <Typography sx={{ fontSize: '2rem', fontWeight: 'bold' }}>
@@ -45,8 +44,6 @@ function ScoreBoard({ userScore = 0, computerScore = 0, handleReset }: ScoreBoar
                     <RestartAltIcon />
                 </IconButton>
             </Stack>
-
-
         </Stack>
     )
 }
