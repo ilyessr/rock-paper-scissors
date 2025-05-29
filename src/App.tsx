@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import GameResult from './components/GameResult';
+import ScoreBoard from './components/ScoreBoard';
 import { Stack, Typography } from '@mui/material';
 import Options from './components/Options';
 
@@ -25,8 +25,7 @@ function App() {
     <div className="app-container">
 
       <Typography variant="h1" sx={{ mb: 4 }}>Rock Paper Scissors</Typography>
-
-      <GameResult userScore={scores.player} computerScore={scores.computer} handleReset={handleResetGame} />
+      <ScoreBoard userScore={scores.player} computerScore={scores.computer} handleReset={handleResetGame} />
       <Stack direction="column" alignItems="center" justifyContent="center" width="100%">
         <Options setScores={setScores} setResultMessage={setResultMessage} setRound={setRound} />
         <Typography variant="h5" sx={{ my: 1 }}>Choose your option and try to beat the computer!</Typography>

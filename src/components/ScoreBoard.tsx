@@ -1,14 +1,14 @@
 import { IconButton, Stack, Typography } from "@mui/material"
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
-interface GameResultProps {
+interface ScoreBoardProps {
     userScore: number
 
     computerScore: number
     handleReset: () => void
 }
 
-function GameResult({ userScore = 0, computerScore = 0, handleReset }: GameResultProps) {
+function ScoreBoard({ userScore = 0, computerScore = 0, handleReset }: ScoreBoardProps) {
     return (
         <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" sx={{ p: 3, backgroundColor: 'rgba(128, 128, 128, 0.1)', borderRadius: '10px' }}>
 
@@ -52,4 +52,4 @@ function GameResult({ userScore = 0, computerScore = 0, handleReset }: GameResul
 }
 
 
-export default GameResult
+export default ScoreBoard
