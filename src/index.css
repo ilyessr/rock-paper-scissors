@@ -18,6 +18,7 @@
   --color-paper-bg: #f4c98b;
   --color-scissors-bg: #55a6a6;
   --color-background-main: #fdf4e3;
+  --color-background-div: rgba(128, 128, 128, 0.1);
 }
 
 * {
