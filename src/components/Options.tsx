@@ -7,23 +7,25 @@ interface OptionsProps {
     setScores: React.Dispatch<React.SetStateAction<{ player: number; computer: number }>>;
     setResultMessage: React.Dispatch<React.SetStateAction<string>>;
     setRound: React.Dispatch<React.SetStateAction<number>>;
+    setPlayerChoice: React.Dispatch<React.SetStateAction<OptionType | null>>;
+    setComputerChoice: React.Dispatch<React.SetStateAction<OptionType | null>>;
 }
 
 
-type OptionData = {
+export type OptionData = {
     value: OptionType;
     emoji: string;
     backgroundColor: string;
 };
 
-const OPTIONS: OptionData[] = [
+export const OPTIONS: OptionData[] = [
     { value: "rock", emoji: "👊", backgroundColor: "var(--color-rock-bg)" },
     { value: "paper", emoji: "🖐️", backgroundColor: "var(--color-paper-bg)" },
     { value: "scissors", emoji: "✌️", backgroundColor: "var(--color-scissors-bg)" },
 ];
 
 
-function Options({ setScores, setResultMessage, setRound }: OptionsProps) {
+function Options({ setScores, setResultMessage, setRound, setPlayerChoice, setComputerChoice }: OptionsProps) {
     const determineWinner = (player: OptionType, computer: OptionType): "player" | "computer" | "tie" => {
         if (player === computer) return "tie";
 
@@ -53,9 +55,12 @@ function Options({ setScores, setResultMessage, setRound }: OptionsProps) {
         }
 
         setRound((prev) => prev + 1);
+        setPlayerChoice(option);
+        setComputerChoice(randomChoice.value);
     };
+
     return (
-        <Stack direction="row" alignItems="center" justifyContent="center" sx={{ my: 4, gap: 2 }} width="100%">
+        <Stack direction="row" alignItems="center" justifyContent="center" sx={{ mb: 4, gap: 2 }} width="100%">
             {OPTIONS.map((option) => (
                 <Option value={option.value} emoji={option.emoji} onClick={() => handleClickOption(option.value)} backgroundColor={option.backgroundColor} />
             ))}
