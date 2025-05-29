@@ -16,6 +16,7 @@ const Option = ({ value, emoji, onClick, size = "4rem", backgroundColor = "trans
             <Typography sx={{ fontSize: size }}>
                 {emoji}
             </Typography>
+            <Typography variant="subtitle1" sx={{ fontSize: "1rem", fontWeight: "bold" }}>{value}  </Typography>
         </Stack>
     )
 };
