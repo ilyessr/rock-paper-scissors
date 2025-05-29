@@ -3,12 +3,15 @@ import './App.css';
 import ScoreBoard from './components/ScoreBoard';
 import { Stack, Typography } from '@mui/material';
 import Options from './components/Options';
+import GameResult from './components/GameResult';
 
 export type OptionType = "rock" | "paper" | "scissors";
 
 
 function App() {
   const [scores, setScores] = useState<{ player: number; computer: number }>({ player: 0, computer: 0 });
+  const [playerChoice, setPlayerChoice] = useState<OptionType | null>(null);
+  const [computerChoice, setComputerChoice] = useState<OptionType | null>(null);
   const [round, setRound] = useState(1);
   const [resultMessage, setResultMessage] = useState<string>("");
 
@@ -26,8 +29,9 @@ function App() {
 
       <Typography variant="h1" sx={{ mb: 4 }}>Rock Paper Scissors</Typography>
       <ScoreBoard userScore={scores.player} computerScore={scores.computer} handleReset={handleResetGame} />
+      <GameResult playerChoice={playerChoice} computerChoice={computerChoice} />
       <Stack direction="column" alignItems="center" justifyContent="center" width="100%">
-        <Options setScores={setScores} setResultMessage={setResultMessage} setRound={setRound} />
+        <Options setScores={setScores} setResultMessage={setResultMessage} setRound={setRound} setPlayerChoice={setPlayerChoice} setComputerChoice={setComputerChoice} />
         <Typography variant="h5" sx={{ my: 1 }}>Choose your option and try to beat the computer!</Typography>
         <Typography variant="subtitle1" sx={{ mb: 3 }}>
           Rock beats Scissors • Paper beats Rock • Scissors beats Paper
