@@ -1,36 +1,62 @@
 import { Stack, Typography } from "@mui/material";
-import { OptionType } from "../App";
+import { OptionType, WinnerType } from "../App";
 import { OptionData, OPTIONS } from "./Options";
 import ChoiceDisplay from "./ChoiceDisplay";
-
+import CountdownWithResult from "./CountdownWithResult";
 
 interface GameResultProps {
-    playerChoice: OptionType | null
-    computerChoice: OptionType | null;
-
+  playerChoice: OptionType;
+  computerChoice: OptionType;
+  winner: WinnerType;
+  isWaiting: boolean;
 }
 
-function GameResult({ playerChoice, computerChoice }: GameResultProps) {
+function GameResult({
+  playerChoice,
+  computerChoice,
+  winner,
+  isWaiting,
+}: GameResultProps) {
+  const playerChoiceData =
+    OPTIONS.find((option: OptionData) => option.value === playerChoice) || null;
+  const computerChoiceData =
+    OPTIONS.find((option: OptionData) => option.value === computerChoice) ||
+    null;
 
-
-    const playerChoiceData = OPTIONS.find((option: OptionData) => option.value === playerChoice) || null;
-    const computerChoiceData = OPTIONS.find((option: OptionData) => option.value === computerChoice) || null;
-
-    if (!playerChoiceData || !computerChoiceData) {
-        return null;
-    }
-
-    return (
-        <Stack direction="row" alignItems="center" justifyContent="center" width="100%" sx={{ p: 3, backgroundColor: "var(--color-background-div)", borderRadius: '10px', mb: 3 }}>
-            <ChoiceDisplay title="Your choice" backgroundColor={playerChoiceData.backgroundColor} emoji={playerChoiceData.emoji} />
-            <Typography sx={{
-                fontWeight: 'bold',
-                fontSize: '2.5rem',
-                mx: 2
-            }}>VS</Typography>
-            <ChoiceDisplay title="Computer choice" backgroundColor={computerChoiceData.backgroundColor} emoji={computerChoiceData.emoji} />
-        </Stack>
-    )
+  return (
+    <Stack
+      sx={{
+        p: 3,
+        backgroundColor: "var(--color-background-div)",
+        borderRadius: "10px",
+        mb: 3,
+      }}
+      width="100%"
+    >
+      <Stack direction="row" alignItems="center" justifyContent="center">
+        <ChoiceDisplay
+          title="Your choice"
+          backgroundColor={playerChoiceData?.backgroundColor || "lightgray"}
+          emoji={playerChoiceData?.emoji || "❔"}
+        />
+        <Typography
+          sx={{
+            fontWeight: "bold",
+            fontSize: "2.5rem",
+            mx: 2,
+          }}
+        >
+          VS
+        </Typography>
+        <ChoiceDisplay
+          title="Computer choice"
+          backgroundColor={computerChoiceData?.backgroundColor || "lightgray"}
+          emoji={computerChoiceData?.emoji || "❔"}
+        />
+      </Stack>
+      <CountdownWithResult winner={winner} isWaiting={isWaiting} />
+    </Stack>
+  );
 }
 
 export default GameResult;
