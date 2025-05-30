@@ -1,4 +1,4 @@
-# 🪨 Rock Paper Scissors
+# Rock Paper Scissors
 
 A simple Rock Paper Scissors game built with React and TypeScript.
 
@@ -11,12 +11,12 @@ npm install
 npm start
 ```
 
-```
-
 ## 🛠 Tech
 
 - React
 - TypeScript
 - Material UI
+
+```
 
 ```
