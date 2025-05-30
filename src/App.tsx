@@ -17,6 +17,8 @@ function App() {
   const resetChoices = () => {
     setPlayerChoice(null);
     setComputerChoice(null);
+    setWinner(null);
+    setIsWaiting(false);
   };
 
   const determineWinner = (
