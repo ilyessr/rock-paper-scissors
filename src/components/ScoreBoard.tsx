@@ -2,6 +2,7 @@ import { IconButton, Stack, Typography } from "@mui/material";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import { useEffect, useState } from "react";
 import { WinnerType } from "../App";
+import GameLeaderIndicator from "./GameLeaderIndicator";
 
 interface ScoreBoardProps {
   winner: WinnerType;
@@ -70,7 +71,8 @@ function ScoreBoard({ winner, resetChoices }: ScoreBoardProps) {
         </Stack>
       </Stack>
 
-      <Stack alignContent="center">
+      <Stack direction="row" alignContent="center" gap={2}>
+        <GameLeaderIndicator scores={scores} />
         <IconButton
           onClick={handleReset}
           color="secondary"
