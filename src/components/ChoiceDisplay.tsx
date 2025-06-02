@@ -11,10 +11,17 @@ function ChoiceDisplay({ title, emoji, backgroundColor }: ChoiceDisplayProps) {
     <Stack
       direction="column"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="space-between"
       width="100%"
     >
-      <Typography variant="h5" sx={{ my: 1, fontWeight: "bold" }}>
+      <Typography
+        variant="h5"
+        sx={{
+          my: 1,
+          fontSize: { xs: "1rem", sm: "1.25rem" },
+          fontWeight: "bold",
+        }}
+      >
         {title}
       </Typography>
 
@@ -22,14 +29,16 @@ function ChoiceDisplay({ title, emoji, backgroundColor }: ChoiceDisplayProps) {
         sx={{
           background: backgroundColor,
           borderRadius: "50%",
-          width: "7rem",
-          height: "7rem",
+          width: { xs: "5rem", sm: "7rem" },
+          height: { xs: "5rem", sm: "7rem" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Typography fontSize="2.5rem">{emoji}</Typography>
+        <Typography fontSize={{ xs: "1.5rem", sm: "2.5rem" }}>
+          {emoji}
+        </Typography>
       </Box>
     </Stack>
   );

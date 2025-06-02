@@ -30,57 +30,68 @@ function ScoreBoard({ winner, resetChoices }: ScoreBoardProps) {
 
   return (
     <Stack
+      position="relative"
       direction="row"
       alignItems="center"
       justifyContent="space-between"
-      width="100%"
       sx={{
-        p: 2,
+        py: { xs: 2, sm: 4 },
+        px: { xs: 2, sm: 4 },
         backgroundColor: "var(--color-background-div)",
         borderRadius: "10px",
         mb: 3,
       }}
     >
-      <Stack direction="row" alignContent="center" alignItems="center">
-        <Stack alignItems="center">
-          <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
-            {scores.player}
-          </Typography>
-          <Typography sx={{ fontSize: "1rem", color: "text.secondary" }}>
-            You
-          </Typography>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        justifyContent={{ xs: "center", sm: "space-between" }}
+        alignItems="center"
+        width="100%"
+      >
+        <Stack direction="row" alignContent="center" alignItems="center">
+          <Stack alignItems="center">
+            <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
+              {scores.player}
+            </Typography>
+            <Typography sx={{ fontSize: "1rem", color: "text.secondary" }}>
+              You
+            </Typography>
+          </Stack>
+          <Stack>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                mx: 2,
+              }}
+            >
+              VS
+            </Typography>
+          </Stack>
+          <Stack alignItems="center">
+            <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
+              {scores.computer}
+            </Typography>
+            <Typography sx={{ fontSize: "1rem", color: "text.secondary" }}>
+              Computer
+            </Typography>
+          </Stack>
         </Stack>
-        <Stack>
-          <Typography
-            sx={{
-              fontWeight: "bold",
-              fontSize: "1.5rem",
-              mx: 2,
-            }}
-          >
-            VS
-          </Typography>
-        </Stack>
-        <Stack alignItems="center">
-          <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
-            {scores.computer}
-          </Typography>
-          <Typography sx={{ fontSize: "1rem", color: "text.secondary" }}>
-            Computer
-          </Typography>
-        </Stack>
+        <GameLeaderIndicator scores={scores} />
       </Stack>
 
-      <Stack direction="row" alignContent="center" gap={2}>
-        <GameLeaderIndicator scores={scores} />
-        <IconButton
-          onClick={handleReset}
-          color="secondary"
-          sx={{ borderRadius: "10px" }}
-        >
-          <RestartAltIcon />
-        </IconButton>
-      </Stack>
+      <IconButton
+        onClick={handleReset}
+        color="secondary"
+        sx={{
+          position: "absolute",
+          right: 10,
+          top: 10,
+          borderRadius: "10px",
+        }}
+      >
+        <RestartAltIcon />
+      </IconButton>
     </Stack>
   );
 }

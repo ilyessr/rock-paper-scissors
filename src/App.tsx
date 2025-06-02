@@ -64,8 +64,17 @@ function App() {
 
   return (
     <div className="app-container">
-      <Typography variant="h1" sx={{ mb: 4 }}>
+      <Typography
+        variant="h1"
+        sx={{ mb: 2, fontSize: { xs: "1.5rem", sm: "2.5rem" } }}
+      >
         Rock Paper Scissors
+      </Typography>
+      <Typography
+        variant="h2"
+        sx={{ mb: 4, fontSize: { xs: "1rem", sm: "1.5rem" } }}
+      >
+        Choose your weapon and try to beat the computer!
       </Typography>
       <ScoreBoard winner={winner} resetChoices={resetChoices} />
       <GameResult
@@ -82,10 +91,10 @@ function App() {
         width="100%"
       >
         <Options playRound={playRound} isWaiting={isWaiting} />
-        <Typography variant="h5" sx={{ my: 1 }}>
-          Choose your option and try to beat the computer!
-        </Typography>
-        <Typography variant="subtitle1" sx={{ mb: 3 }}>
+        <Typography
+          variant="subtitle1"
+          sx={{ mb: 3, fontSize: { xs: "0.8rem", sm: "1rem" } }}
+        >
           Rock beats Scissors • Paper beats Rock • Scissors beats Paper
         </Typography>
       </Stack>

@@ -44,8 +44,15 @@ function CountdownWithResult({ isWaiting, winner }: CountdownWithResultProps) {
     return () => clearInterval(interval);
   }, [isWaiting]);
 
+  if (!winner && !isWaiting) return null;
+
   return (
-    <Typography variant="h5" fontWeight="bold" textAlign="center">
+    <Typography
+      variant="h5"
+      fontWeight="bold"
+      textAlign="center"
+      sx={{ fontSize: { xs: "1rem", sm: "1.25rem" }, mt: 2 }}
+    >
       {isWaiting ? words.slice(0, step + 1).join("") : formatResult(winner)}
     </Typography>
   );

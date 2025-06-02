@@ -36,9 +36,15 @@ function GameLeaderIndicator({ scores }: GameLeaderIndicatorProps) {
         fontSize: "0.75rem",
         fontWeight: 500,
         mt: 1,
+        height: "fit-content",
       }}
     >
-      <Typography variant="subtitle1">{message}</Typography>
+      <Typography
+        variant="subtitle1"
+        sx={{ fontSize: { xs: "0.75rem", sm: "1rem" } }}
+      >
+        {message}
+      </Typography>
     </Box>
   );
 }

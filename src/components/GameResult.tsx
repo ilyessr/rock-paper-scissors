@@ -31,25 +31,26 @@ function GameResult({
         borderRadius: "10px",
         mb: 3,
       }}
+      alignItems="center"
       width="100%"
     >
       <Stack direction="row" alignItems="center" justifyContent="center">
         <ChoiceDisplay
-          title="Your choice"
+          title="You"
           backgroundColor={playerChoiceData?.backgroundColor || "lightgray"}
           emoji={playerChoiceData?.emoji || "❔"}
         />
         <Typography
           sx={{
             fontWeight: "bold",
-            fontSize: "2.5rem",
+            fontSize: { xs: "1.5rem", sm: "2.5rem" },
             mx: 2,
           }}
         >
           VS
         </Typography>
         <ChoiceDisplay
-          title="Computer choice"
+          title="Computer"
           backgroundColor={computerChoiceData?.backgroundColor || "lightgray"}
           emoji={computerChoiceData?.emoji || "❔"}
         />
