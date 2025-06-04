@@ -8,7 +8,7 @@ A simple Rock Paper Scissors game built with React and TypeScript.
 
 ```
 npm install
-npm start
+npm run dev
 ```
 
 ## 🛠 Tech
@@ -16,7 +16,4 @@ npm start
 - React
 - TypeScript
 - Material UI
-
-```
-
-```
+- Vite
